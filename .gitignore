@@ -1,0 +1,6 @@
+project
+target
+test_run_dir
+node_modules
+package.json
+package-lock.json
