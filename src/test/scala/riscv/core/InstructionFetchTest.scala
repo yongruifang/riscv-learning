@@ -31,10 +31,10 @@ class InstructionFetchTest extends AnyFlatSpec with ChiselScalatestTester{
           case 1 => // jump
             c.io.instruction_valid.poke(true.B) // 使能指令有效信号
             c.io.jump_flag_id.poke(true.B) // 使能跳转
-            c.io.jump_address_id.poke(entry) // 跳转到目标地址，不妨设为entry
+            c.io.jump_address_id.poke(0x0000_1200) // 跳转到目标地址，这里假设目标地址为0x0000_1200
             c.clock.step()                  //  时钟步进
-            c.io.instruction_address.expect(entry) // 检查PC的值, 希望PC的值为entry
-            pre = entry
+            c.io.instruction_address.expect(0x0000_1200) // 检查PC的值, 希望PC的值为0x0000_1200
+            pre = 0x0000_1200
           case 2 => // invalid
             c.io.instruction_valid.poke(false.B) // 禁用指令有效信号
             c.clock.step() // 时钟步进

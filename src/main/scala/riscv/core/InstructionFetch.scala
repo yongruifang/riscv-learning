@@ -25,11 +25,11 @@ class InstructionFetch extends Module {
         io.instruction := io.instruction_read_data // 指令有效时，输出从内存中读取的指令
         // 1. 根据当前PC寄存器的地址从内存中取出指令
         // 2. 修改PC寄存器的值使其指向下一条指令
-        //    - 需要跳转，则PC指向跳转地址，当前不妨设为entry
+        //    - 需要跳转，则PC指向跳转地址
         //    - 顺序执行，则PC += 4
         // 3. 将PC的值输出到io.instruction_address中
         when(io.jump_flag_id) {
-            pc := ProgramCounter.EntryAddress
+            pc := io.jump_address_id
         }.otherwise {
             pc := pc + 4.U
         }
