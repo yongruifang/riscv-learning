@@ -14,4 +14,8 @@ object Parameters {
 
     val InstructionBits = 32
     val InstructionWidth = InstructionBits.W
+
+    val PhysicalRegisters = 32
+    val PhysicalRegisterAddrBits = log2Up(PhysicalRegisters)
+    val PhysicalRegisterAddrWidth = PhysicalRegisterAddrBits.W
 }
