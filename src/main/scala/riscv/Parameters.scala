@@ -7,6 +7,9 @@ object Parameters {
     val AddrBits = 32 // 地址总线位宽
     val AddrWidth = AddrBits.W // 地址总线宽度
 
+    val ByteBits = 8
+    val ByteWidth = ByteBits.W
+
     val DataBits = 32 // 数据总线位宽
     val DataWidth = DataBits.W // 数据总线宽度
     
@@ -18,4 +21,6 @@ object Parameters {
     val PhysicalRegisters = 32
     val PhysicalRegisterAddrBits = log2Up(PhysicalRegisters)
     val PhysicalRegisterAddrWidth = PhysicalRegisterAddrBits.W
+
+    val WordSize = Math.ceil(DataBits / ByteBits).toInt
 }
