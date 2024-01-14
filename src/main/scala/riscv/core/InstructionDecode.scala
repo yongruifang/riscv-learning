@@ -111,11 +111,12 @@ object ALUOp2Source {
   val Immediate = 1.U(1.W)
 }
 
+// 写回阶段的数据来源
 object RegWriteSource {
-  val ALUResult = 0.U(2.W)
-  val Memory = 1.U(2.W)
+  val ALUResult = 0.U(2.W) // ALU计算结果, 0.U(2.W)表示二进制的00
+  val Memory = 1.U(2.W) // 从内存中读取的数据, 1.U(2.W)表示二进制的01
   //val CSR = 2.U(2.W)
-  val NextInstructionAddress = 3.U(2.W)
+  val NextInstructionAddress = 3.U(2.W) // 下一条指令的地址，3.U(2.W)表示二进制的11
 }
 
 class InstructionDecode extends Module {
